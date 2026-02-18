@@ -3,78 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Elyzio — Maîtrisez la Tech, Visez l’Excellence</title>
-  <meta name="description" content="3 packs (PDF) pour optimiser ton setup. Téléchargement immédiat après paiement. Express 5€, Performance 10€, Elite 20€." />
+  <title>Elyzio — Packs Boost</title>
+  <meta name="description" content="3 packs PDF pour booster ton setup. Paiement sécurisé Stripe. Téléchargement immédiat après paiement." />
   <style>
     :root{
       --bg:#070A12;
-      --panel:#0D1220;
-      --panel2:#0B1020;
-      --border:rgba(255,255,255,.09);
+      --card:#0C1222;
+      --stroke:rgba(255,255,255,.10);
       --text:rgba(255,255,255,.92);
       --muted:rgba(255,255,255,.70);
-      --faint:rgba(255,255,255,.55);
       --blue:#00B7FF;
       --blue2:#2F7BFF;
       --cyan:#00FFE0;
-      --good:#39FF88;
-      --warn:#FFD25A;
       --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius:22px;
-      --radius2:16px;
-      --max:1180px;
+      --r:20px;
+      --max:1080px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial;
       color:var(--text);
-      background: radial-gradient(1200px 800px at 20% -10%, rgba(0,183,255,.22), transparent 55%),
-                  radial-gradient(900px 700px at 85% 15%, rgba(47,123,255,.18), transparent 55%),
-                  radial-gradient(900px 700px at 55% 105%, rgba(0,255,224,.10), transparent 60%),
-                  linear-gradient(180deg, #050711 0%, #070A12 40%, #050711 100%);
+      background:
+        radial-gradient(1200px 700px at 25% -10%, rgba(0,183,255,.20), transparent 55%),
+        radial-gradient(900px 650px at 85% 10%, rgba(47,123,255,.16), transparent 55%),
+        radial-gradient(900px 650px at 55% 110%, rgba(0,255,224,.08), transparent 60%),
+        linear-gradient(180deg, #050711 0%, #070A12 45%, #050711 100%);
       overflow-x:hidden;
     }
-
-    .bg-grid{
-      position:fixed; inset:0; pointer-events:none; z-index:-1;
-      background-image:
-        linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px);
-      background-size: 64px 64px;
-      opacity:.22;
-      mask-image: radial-gradient(600px 360px at 35% 15%, black 45%, transparent 75%);
-      filter: blur(.2px);
-    }
-    .bg-noise{
-      position:fixed; inset:0; pointer-events:none; z-index:-1;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
-      opacity:.10;
-      mix-blend-mode: overlay;
-    }
-
     a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:24px 18px 90px;}
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px;
-      border:1px solid var(--border);
-      background: rgba(13,18,32,.55);
-      border-radius:999px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      backdrop-filter: blur(10px);
-      font-size:13px;
-      color:var(--muted);
-      user-select:none;
-    }
-    .dot{
-      width:9px; height:9px; border-radius:50%;
-      background: var(--good);
-      box-shadow: 0 0 18px rgba(57,255,136,.65);
-    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:22px 16px 90px;}
 
+    /* Top bar */
     header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
@@ -82,284 +43,98 @@
       border-bottom:1px solid rgba(255,255,255,.06);
     }
     .nav{
-      max-width:var(--max); margin:0 auto; padding:14px 18px;
-      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      max-width:var(--max); margin:0 auto; padding:14px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:800; letter-spacing:.5px;
-    }
+    .brand{display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.4px}
     .logo{
       width:34px; height:34px; border-radius:10px;
-      background: radial-gradient(circle at 30% 30%, rgba(0,183,255,.9), rgba(47,123,255,.55) 40%, rgba(0,0,0,.2) 70%),
-                  linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,0));
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow: 0 0 0 6px rgba(0,183,255,.06), 0 10px 30px rgba(0,0,0,.35);
-      position:relative;
-      overflow:hidden;
+      background: radial-gradient(circle at 30% 30%, rgba(0,183,255,.95), rgba(47,123,255,.55) 45%, rgba(0,0,0,.2) 75%);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 0 0 6px rgba(0,183,255,.06), 0 12px 35px rgba(0,0,0,.45);
     }
-    .logo::after{
-      content:"";
-      position:absolute; inset:-40%;
-      background: conic-gradient(from 180deg, rgba(0,183,255,.0), rgba(0,183,255,.25), rgba(0,255,224,.16), rgba(47,123,255,.22), rgba(0,183,255,.0));
-      animation: spin 7s linear infinite;
-    }
-    @keyframes spin{to{transform:rotate(360deg)}}
-
-    .navlinks{
-      display:flex; align-items:center; gap:18px;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .navlinks a{opacity:.9}
-    .navlinks a:hover{opacity:1; color:rgba(255,255,255,.92)}
+    .nav a.smalllink{color:var(--muted); font-size:14px}
+    .nav a.smalllink:hover{color:rgba(255,255,255,.92)}
     .cta{
       display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px;
-      border-radius:12px;
+      padding:10px 14px; border-radius:14px;
       border:1px solid rgba(0,183,255,.35);
-      background: linear-gradient(135deg, rgba(0,183,255,.20), rgba(47,123,255,.10));
-      box-shadow: 0 18px 50px rgba(0,183,255,.12);
-      font-weight:700;
-      color:rgba(255,255,255,.95);
-      cursor:pointer;
-      transition: transform .15s ease, box-shadow .15s ease;
+      background: linear-gradient(135deg, rgba(0,183,255,.22), rgba(47,123,255,.10));
+      font-weight:900; cursor:pointer;
+      box-shadow: 0 18px 55px rgba(0,183,255,.14);
+      transition: transform .15s ease;
       white-space:nowrap;
     }
-    .cta:hover{transform:translateY(-1px); box-shadow: 0 24px 60px rgba(0,183,255,.18)}
-    .cta:active{transform:translateY(0px) scale(.99)}
+    .cta:hover{transform:translateY(-1px)}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 18px rgba(0,183,255,.65)}
 
-    .hero{padding:46px 0 18px; position:relative;}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:26px;
-      align-items:stretch;
-    }
-    .hero-card{
-      border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(13,18,32,.72), rgba(11,16,32,.55));
-      border-radius:var(--radius);
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(12,18,34,.76), rgba(12,18,34,.48));
+      border-radius: calc(var(--r) + 6px);
       box-shadow: var(--shadow);
-      overflow:hidden;
+      padding:24px;
       position:relative;
+      overflow:hidden;
     }
-    .hero-left{padding:30px 26px 26px;}
-    .title{
-      font-size:52px;
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(700px 260px at 18% 10%, rgba(0,183,255,.18), transparent 55%),
+        radial-gradient(600px 260px at 85% 0%, rgba(0,255,224,.10), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .hero > *{position:relative}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:9px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      color:var(--muted);
+      font-size:13px;
+      user-select:none;
+    }
+    h1{
+      margin:14px 0 8px;
+      font-size:44px;
       line-height:1.05;
-      margin:14px 0 12px;
       letter-spacing:-.6px;
-      font-weight:900;
+      font-weight:1000;
     }
     .accent{
       background: linear-gradient(90deg, var(--blue) 0%, var(--cyan) 40%, var(--blue2) 100%);
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      text-shadow: 0 0 18px rgba(0,183,255,.12);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    .subtitle{
+    .sub{
+      margin:0 0 16px;
       color:var(--muted);
-      font-size:16px;
       line-height:1.6;
-      max-width: 58ch;
-      margin:0 0 18px;
+      max-width: 60ch;
+      font-size:15px;
     }
-    .hero-actions{
-      display:flex; gap:12px; flex-wrap:wrap;
-      margin-top:18px;
+    .trust{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:12px;
     }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
-      color:rgba(255,255,255,.92);
-      font-weight:800;
-      cursor:pointer;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease;
-      user-select:none;
-    }
-    .btn:hover{transform:translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16)}
-    .btn-primary{
-      border-color: rgba(0,183,255,.40);
-      background: linear-gradient(135deg, rgba(0,183,255,.25), rgba(47,123,255,.14));
-      box-shadow: 0 18px 55px rgba(0,183,255,.14);
-    }
-    .btn-primary:hover{box-shadow: 0 24px 60px rgba(0,183,255,.18)}
-    .micro{
-      margin-top:16px;
-      display:flex; gap:14px; flex-wrap:wrap;
-      color:var(--faint);
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color:rgba(255,255,255,.82);
       font-size:13px;
     }
-    .micro span{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px;
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.04);
-      border-radius:999px;
-    }
     .check{
-      width:16px; height:16px; border-radius:6px;
-      background: rgba(57,255,136,.12);
-      border:1px solid rgba(57,255,136,.28);
-      box-shadow: 0 0 16px rgba(57,255,136,.12);
+      width:16px;height:16px;border-radius:6px;
+      background: rgba(0,183,255,.12);
+      border:1px solid rgba(0,183,255,.22);
       position:relative;
     }
     .check::after{
-      content:"";
-      position:absolute;
-      left:4px; top:3px;
-      width:6px; height:9px;
-      border-right:2px solid rgba(57,255,136,.95);
-      border-bottom:2px solid rgba(57,255,136,.95);
-      transform: rotate(40deg);
-    }
-
-    .hero-right{padding:22px 18px 18px;}
-    .side-title{
-      font-weight:900;
-      letter-spacing:.2px;
-      margin:8px 0 10px;
-      font-size:16px;
-    }
-    .side-card{
-      border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border-radius:var(--radius2);
-      padding:14px 14px;
-      margin-top:12px;
-    }
-    .kpi{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-      margin-top:10px;
-    }
-    .kpi .box{
-      border:1px solid rgba(255,255,255,.08);
-      background: rgba(0,0,0,.18);
-      border-radius:14px;
-      padding:12px;
-    }
-    .kpi .label{font-size:12px; color:var(--faint)}
-    .kpi .value{font-size:18px; font-weight:900; margin-top:4px}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(0,183,255,.28);
-      background: rgba(0,183,255,.08);
-      color:rgba(255,255,255,.88);
-      font-weight:800;
-      font-size:12px;
-    }
-    .spark{
-      width:10px; height:10px; border-radius:50%;
-      background: var(--blue);
-      box-shadow: 0 0 18px rgba(0,183,255,.65);
-    }
-    .side-list{margin:10px 0 0; padding:0; list-style:none; color:var(--muted); font-size:13px}
-    .side-list li{display:flex; gap:10px; padding:10px 0; border-bottom:1px solid rgba(255,255,255,.06)}
-    .side-list li:last-child{border-bottom:0}
-    .bullet{
-      width:22px; height:22px; border-radius:10px;
-      background: rgba(0,183,255,.10);
-      border:1px solid rgba(0,183,255,.22);
-      display:flex; align-items:center; justify-content:center;
-      color:rgba(255,255,255,.9);
-      font-weight:900;
-      flex:none;
-    }
-
-    .section{padding:36px 0 0}
-    .section h3{
-      margin:0 0 12px;
-      font-size:22px;
-      font-weight:950;
-      letter-spacing:-.2px;
-    }
-    .section p{margin:0; color:var(--muted); line-height:1.65}
-
-    .cards{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:16px;
-    }
-    .card{
-      border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(13,18,32,.70), rgba(11,16,32,.45));
-      border-radius:var(--radius);
-      box-shadow: 0 14px 45px rgba(0,0,0,.40);
-      overflow:hidden;
-      position:relative;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-      min-height: 360px;
-    }
-    .card:hover{
-      transform: translateY(-6px);
-      border-color: rgba(0,183,255,.25);
-      box-shadow: 0 22px 70px rgba(0,0,0,.55);
-    }
-    .card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(600px 280px at 20% 10%, rgba(0,183,255,.20), transparent 55%),
-                  radial-gradient(520px 260px at 80% 0%, rgba(0,255,224,.10), transparent 55%);
-      opacity:.85;
-      pointer-events:none;
-    }
-    .card-inner{position:relative; padding:18px}
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      font-weight:900;
-      letter-spacing:.2px;
-      font-size:13px;
-      color:rgba(255,255,255,.90);
-    }
-    .tag i{
-      width:10px; height:10px; border-radius:50%;
-      display:inline-block;
-    }
-    .tag .g{background:var(--good); box-shadow: 0 0 18px rgba(57,255,136,.55)}
-    .tag .y{background:var(--warn); box-shadow: 0 0 18px rgba(255,210,90,.35)}
-    .tag .b{background:var(--blue); box-shadow: 0 0 18px rgba(0,183,255,.55)}
-
-    .price{
-      font-size:46px;
-      font-weight:1000;
-      margin:14px 0 8px;
-      letter-spacing:-.8px;
-      background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(0,183,255,.95));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-    .small{
-      font-size:13px; color:var(--muted);
-      margin:0 0 14px;
-    }
-    .list{margin:14px 0 0; padding:0; list-style:none}
-    .list li{
-      display:flex; gap:10px; padding:10px 0;
-      border-top:1px solid rgba(255,255,255,.06);
-      color:rgba(255,255,255,.82);
-      font-size:14px;
-    }
-    .list li:first-child{border-top:0}
-    .tick{
-      width:18px; height:18px; border-radius:7px;
-      background: rgba(0,183,255,.10);
-      border:1px solid rgba(0,183,255,.22);
-      position:relative; flex:none;
-      margin-top:1px;
-    }
-    .tick::after{
       content:"";
       position:absolute; left:5px; top:3px;
       width:6px; height:9px;
@@ -368,474 +143,264 @@
       transform: rotate(40deg);
     }
 
-    .buy{
-      margin-top:16px;
-      display:flex; gap:10px; flex-wrap:wrap;
-    }
-    .buy a{flex:1}
-    .buy .btn{width:100%}
-    .btn-buy{
-      border-color: rgba(0,183,255,.45);
-      background: linear-gradient(135deg, rgba(0,183,255,.30), rgba(47,123,255,.16));
-      font-weight:1000;
-    }
-    .btn-ghost{
-      background: rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.12);
-      color:rgba(255,255,255,.88);
-      font-weight:900;
-    }
-
-    .proof{
-      margin-top:18px;
+    /* Cards */
+    .section{margin-top:18px}
+    .cards{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:16px;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:14px;
     }
-    .panel{
+    .card{
       border:1px solid rgba(255,255,255,.10);
-      background: linear-gradient(180deg, rgba(13,18,32,.70), rgba(11,16,32,.45));
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      padding:18px;
+      background: linear-gradient(180deg, rgba(12,18,34,.78), rgba(12,18,34,.44));
+      border-radius: var(--r);
+      box-shadow: 0 14px 45px rgba(0,0,0,.40);
+      padding:16px;
       position:relative;
       overflow:hidden;
+      transition: transform .18s ease, border-color .18s ease;
+      min-height: 310px;
     }
-    .panel::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(520px 260px at 15% 0%, rgba(0,183,255,.16), transparent 55%),
-                  radial-gradient(520px 260px at 85% 15%, rgba(0,255,224,.08), transparent 55%);
-      opacity:.9; pointer-events:none;
+    .card:hover{transform: translateY(-6px); border-color: rgba(0,183,255,.25)}
+    .tag{display:flex; align-items:center; gap:10px; font-weight:950}
+    .tag i{width:10px;height:10px;border-radius:50%}
+    .g{background:#39FF88; box-shadow:0 0 18px rgba(57,255,136,.35)}
+    .y{background:#FFD25A; box-shadow:0 0 18px rgba(255,210,90,.25)}
+    .b{background:var(--blue); box-shadow:0 0 18px rgba(0,183,255,.45)}
+    .price{
+      font-size:42px;
+      font-weight:1000;
+      margin:12px 0 8px;
+      letter-spacing:-.8px;
+      background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(0,183,255,.95));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
     }
-    .panel > *{position:relative}
-    .quote{
-      margin:12px 0 0;
-      color:rgba(255,255,255,.86);
-      font-size:15px;
-      line-height:1.7;
+    .one{
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:10px;
     }
-    .who{margin-top:12px; color:var(--muted); font-size:13px}
-    .stars{color:rgba(255,255,255,.85); letter-spacing:1px}
-    .mini-grid{
-      display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap:12px;
-      margin-top:12px;
+    ul{margin:12px 0 0; padding:0; list-style:none}
+    li{
+      display:flex; gap:10px;
+      padding:10px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+      color:rgba(255,255,255,.84);
+      font-size:14px;
     }
-    .mini{
+    li:first-child{border-top:0}
+    .tick{
+      width:18px;height:18px;border-radius:7px;
+      background: rgba(255,255,255,.04);
       border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-      border-radius:16px;
-      padding:14px;
+      position:relative; flex:none; margin-top:1px;
     }
-    .mini .big{font-weight:1000; font-size:22px}
-    .mini .cap{color:var(--muted); font-size:12px; margin-top:3px}
+    .tick::after{
+      content:"";
+      position:absolute; left:5px; top:3px;
+      width:6px; height:9px;
+      border-right:2px solid rgba(255,255,255,.85);
+      border-bottom:2px solid rgba(255,255,255,.85);
+      transform: rotate(40deg);
+    }
+    .btn{
+      margin-top:14px;
+      width:100%;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(0,183,255,.40);
+      background: linear-gradient(135deg, rgba(0,183,255,.26), rgba(47,123,255,.12));
+      font-weight:1000;
+      cursor:pointer;
+      transition: transform .15s ease;
+      user-select:none;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .hint{
+      margin-top:8px;
+      font-size:12px;
+      color:rgba(255,255,255,.55);
+      text-align:center;
+    }
 
+    /* Small FAQ (minimal) */
     .faq{
-      margin-top:16px;
+      margin-top:18px;
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap:12px;
     }
-    details{
+    .q{
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.04);
-      border-radius:16px;
-      padding:14px 14px;
+      border-radius: 16px;
+      padding:14px;
     }
-    summary{
-      cursor:pointer;
-      font-weight:900;
-      color:rgba(255,255,255,.90);
-      list-style:none;
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px;
-    }
-    summary::-webkit-details-marker{display:none}
-    .plus{
-      width:26px; height:26px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:1000;
-      color:rgba(255,255,255,.85);
-      flex:none;
-    }
-    details[open] .plus{color:rgba(0,183,255,.95); border-color: rgba(0,183,255,.25)}
-    details p{color:var(--muted); margin:10px 0 0; line-height:1.65; font-size:14px}
+    .q b{display:block; margin-bottom:6px}
+    .q p{margin:0; color:var(--muted); line-height:1.55; font-size:13px}
 
+    footer{
+      margin-top:22px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.06);
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      color:rgba(255,255,255,.55);
+      font-size:13px;
+    }
+
+    /* Sticky buy */
     .sticky{
       position:fixed; left:0; right:0; bottom:14px; z-index:60;
-      display:flex; justify-content:center; pointer-events:none;
-      padding:0 14px;
+      display:flex; justify-content:center; padding:0 14px;
     }
-    .sticky .bar{
-      pointer-events:auto;
-      max-width: var(--max);
+    .bar{
+      max-width:var(--max);
       width:100%;
       border:1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(13,18,32,.70), rgba(7,10,18,.55));
+      background: linear-gradient(180deg, rgba(12,18,34,.72), rgba(7,10,18,.55));
       backdrop-filter: blur(14px);
       border-radius: 18px;
       box-shadow: 0 20px 70px rgba(0,0,0,.55);
       padding:12px;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
-    .sticky .left{
-      display:flex; align-items:center; gap:12px;
-      min-width: 0;
-    }
-    .sticky .left .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(0,183,255,.22);
-      background: rgba(0,183,255,.08);
-      color:rgba(255,255,255,.90);
-      font-weight:900;
-      font-size:13px;
-      white-space:nowrap;
-    }
-    .sticky .left .txt{
-      color:var(--muted);
-      font-size:13px;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-    }
-    .sticky .right{display:flex; gap:10px; align-items:center}
+    .bar .left{display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.80); font-size:13px}
+    .bar .right{display:flex; align-items:center; gap:10px}
     select{
-      background: rgba(0,0,0,.22);
+      background: rgba(0,0,0,.25);
       border:1px solid rgba(255,255,255,.14);
-      color:rgba(255,255,255,.90);
+      color:rgba(255,255,255,.92);
       padding:10px 12px;
       border-radius:14px;
       outline:none;
-      font-weight:800;
+      font-weight:900;
       cursor:pointer;
     }
-
-    footer{
-      margin-top:40px;
-      padding:26px 0 0;
-      color:var(--faint);
-      font-size:13px;
-      border-top:1px solid rgba(255,255,255,.06);
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      align-items:center;
-      justify-content:space-between;
+    .buyNow{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(0,183,255,.45);
+      background: linear-gradient(135deg, rgba(0,183,255,.30), rgba(47,123,255,.14));
+      font-weight:1000;
+      white-space:nowrap;
     }
-    .footlinks{display:flex; gap:14px; flex-wrap:wrap}
-    .footlinks a{opacity:.85}
-    .footlinks a:hover{opacity:1; color:rgba(255,255,255,.95)}
 
     @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr}
-      .title{font-size:44px}
+      h1{font-size:38px}
       .cards{grid-template-columns: 1fr}
-      .proof{grid-template-columns: 1fr}
-      .faq{grid-template-columns: 1 fr}
-      .navlinks{display:none}
-      .sticky .bar{flex-direction:column; align-items:stretch}
-      .sticky .right{justify-content:space-between}
-      .sticky .left .txt{white-space:normal}
-    }
-    @media (prefers-reduced-motion: reduce){
-      *{scroll-behavior:auto !important; animation:none !important; transition:none !important}
+      .faq{grid-template-columns: 1fr}
+      .bar{flex-direction:column; align-items:stretch}
+      .bar .right{justify-content:space-between}
     }
   </style>
 </head>
 
 <body>
-  <div class="bg-grid"></div>
-  <div class="bg-noise"></div>
-
   <header>
     <div class="nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>Elyzio</div>
-      </div>
-
-      <nav class="navlinks">
-        <a href="#packs">Packs</a>
-        <a href="#pourquoi">Pourquoi</a>
-        <a href="#avis">Avis</a>
-        <a href="#faq">FAQ</a>
-        <a href="reglement.html">Règlement</a>
-      </nav>
-
-      <a class="cta" href="#packs">
-        <span class="spark" aria-hidden="true"></span>
-        Voir les packs
-      </a>
+      <div class="brand"><span class="logo"></span> Elyzio</div>
+      <a class="smalllink" href="reglement.html">Règlement</a>
+      <a class="cta" href="#packs"><span class="dot"></span> Acheter</a>
     </div>
   </header>
 
   <main class="wrap">
     <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-card hero-left">
-          <div class="pill"><span class="dot"></span> Téléchargement immédiat après paiement • PDF</div>
-
-          <h1 class="title">
-            MAÎTRISEZ LA TECH,<br />
-            <span class="accent">VISEZ L’EXCELLENCE</span>
-          </h1>
-
-          <p class="subtitle">
-            3 packs séparés (1 PDF par pack) pour optimiser ton setup et gagner en performance.
-            Simple, rapide, actionnable — sans blabla.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#packs">Choisir mon pack</a>
-            <a class="btn" href="#faq">Questions fréquentes</a>
-            <a class="btn" href="reglement.html">Voir le règlement</a>
-          </div>
-
-          <div class="micro">
-            <span><span class="check"></span>Paiement sécurisé (Stripe)</span>
-            <span><span class="check"></span>Accès instantané</span>
-            <span><span class="check"></span>Lisible sur mobile</span>
-          </div>
-        </div>
-
-        <aside class="hero-card hero-right">
-          <div class="badge"><span class="spark"></span> Elyzio • Packs Boost</div>
-          <div class="side-card">
-            <div class="side-title">Ce que tu vas obtenir</div>
-            <ul class="side-list">
-              <li><span class="bullet">1</span><div>Un PDF clair, structuré, étape par étape.</div></li>
-              <li><span class="bullet">2</span><div>Des réglages “prêts à appliquer” (pas de théorie).</div></li>
-              <li><span class="bullet">3</span><div>Une amélioration directe de ton setup/perf.</div></li>
-            </ul>
-          </div>
-
-          <div class="kpi">
-            <div class="box">
-              <div class="label">Format</div>
-              <div class="value">PDF</div>
-            </div>
-            <div class="box">
-              <div class="label">Accès</div>
-              <div class="value">Instant</div>
-            </div>
-          </div>
-
-          <div class="side-card">
-            <div class="side-title">Conseil Elyzio</div>
-            <div class="quote">Prends <b>EXPRESS</b> si tu veux du rapide. <b>PERFORMANCE</b> pour aller plus loin. <b>ELITE</b> si tu veux le guide complet.</div>
-          </div>
-        </aside>
+      <div class="pill"><span class="dot"></span> PDF • Paiement Stripe • Téléchargement immédiat</div>
+      <h1>Boost ton setup.<br><span class="accent">Choisis ton pack.</span></h1>
+      <p class="sub">
+        3 packs simples. Tu payes → page merci → tu télécharges ton PDF.
+      </p>
+      <div class="trust">
+        <span class="chip"><span class="check"></span>Accès instant</span>
+        <span class="chip"><span class="check"></span>Secure Stripe</span>
+        <span class="chip"><span class="check"></span>Lisible mobile</span>
       </div>
     </section>
 
     <section id="packs" class="section">
-      <h3>Choisis ton pack</h3>
-      <p>Tu prends celui qui correspond à ton niveau. Tout est livré immédiatement après paiement.</p>
-
       <div class="cards">
         <!-- EXPRESS -->
         <article class="card">
-          <div class="card-inner">
-            <div class="tag"><i class="g"></i> Boost EXPRESS</div>
-            <div class="price">5€</div>
-            <div class="small">Le plus rapide pour améliorer ton setup.</div>
-
-            <ul class="list">
-              <li><span class="tick"></span><span>Optimisation rapide (essentiel)</span></li>
-              <li><span class="tick"></span><span>Réglages FPS & fluidité</span></li>
-              <li><span class="tick"></span><span>Checklist simple à appliquer</span></li>
-            </ul>
-
-            <div class="buy">
-              <a href="https://buy.stripe.com/00w14m74DbSpcpgfVQ38400" target="_blank" rel="noopener">
-                <span class="btn btn-buy">Acheter EXPRESS</span>
-              </a>
-              <a href="#faq">
-                <span class="btn btn-ghost">Voir FAQ</span>
-              </a>
-            </div>
-          </div>
+          <div class="tag"><i class="g"></i> Boost EXPRESS</div>
+          <div class="price">5€</div>
+          <div class="one">Rapide, efficace.</div>
+          <ul>
+            <li><span class="tick"></span><span>Optimisation essentielle</span></li>
+            <li><span class="tick"></span><span>Fluidité / FPS</span></li>
+            <li><span class="tick"></span><span>Checklist simple</span></li>
+          </ul>
+          <a class="btn" href="https://buy.stripe.com/00w14m74DbSpcpgfVQ38400" target="_blank" rel="noopener">Acheter EXPRESS</a>
+          <div class="hint">Téléchargement immédiat</div>
         </article>
 
         <!-- PERFORMANCE -->
         <article class="card">
-          <div class="card-inner">
-            <div class="tag"><i class="y"></i> Boost PERFORMANCE</div>
-            <div class="price">10€</div>
-            <div class="small">Le meilleur équilibre qualité/prix.</div>
-
-            <ul class="list">
-              <li><span class="tick"></span><span>Optimisation avancée (latence)</span></li>
-              <li><span class="tick"></span><span>Réglages pro + explications</span></li>
-              <li><span class="tick"></span><span>Résultats plus solides & stables</span></li>
-            </ul>
-
-            <div class="buy">
-              <a href="https://buy.stripe.com/6oU9ASdt1g8F8909xs38401" target="_blank" rel="noopener">
-                <span class="btn btn-buy">Acheter PERFORMANCE</span>
-              </a>
-              <a href="#avis">
-                <span class="btn btn-ghost">Avis</span>
-              </a>
-            </div>
-          </div>
+          <div class="tag"><i class="y"></i> Boost PERFORMANCE</div>
+          <div class="price">10€</div>
+          <div class="one">Le meilleur choix.</div>
+          <ul>
+            <li><span class="tick"></span><span>Optimisation avancée</span></li>
+            <li><span class="tick"></span><span>Latence / stabilité</span></li>
+            <li><span class="tick"></span><span>Plus complet</span></li>
+          </ul>
+          <a class="btn" href="https://buy.stripe.com/6oU9ASdt1g8F8909xs38401" target="_blank" rel="noopener">Acheter PERFORMANCE</a>
+          <div class="hint">Téléchargement immédiat</div>
         </article>
 
         <!-- ELITE -->
         <article class="card">
-          <div class="card-inner">
-            <div class="tag"><i class="b"></i> Boost ELITE</div>
-            <div class="price">20€</div>
-            <div class="small">Le guide complet (10 chapitres).</div>
-
-            <ul class="list">
-              <li><span class="tick"></span><span>Optimisation totale de ton setup</span></li>
-              <li><span class="tick"></span><span>Guide complet, structuré, “pro”</span></li>
-              <li><span class="tick"></span><span>Idéal si tu veux tout maîtriser</span></li>
-            </ul>
-
-            <div class="buy">
-              <a href="https://buy.stripe.com/aFa4gy88H7C91KC8to38402" target="_blank" rel="noopener">
-                <span class="btn btn-buy">Acheter ELITE</span>
-              </a>
-              <a href="reglement.html">
-                <span class="btn btn-ghost">Règlement</span>
-              </a>
-            </div>
-          </div>
+          <div class="tag"><i class="b"></i> Boost ELITE</div>
+          <div class="price">20€</div>
+          <div class="one">Le guide complet.</div>
+          <ul>
+            <li><span class="tick"></span><span>Optimisation totale</span></li>
+            <li><span class="tick"></span><span>Guide complet (10 chapitres)</span></li>
+            <li><span class="tick"></span><span>Pour tout maîtriser</span></li>
+          </ul>
+          <a class="btn" href="https://buy.stripe.com/aFa4gy88H7C91KC8to38402" target="_blank" rel="noopener">Acheter ELITE</a>
+          <div class="hint">Téléchargement immédiat</div>
         </article>
       </div>
     </section>
 
-    <section id="pourquoi" class="section">
-      <h3>Pourquoi ça marche</h3>
-      <p>Parce que tu appliques des réglages concrets, sans passer 3 heures à chercher des infos contradictoires.</p>
-
-      <div class="proof" style="margin-top:16px;">
-        <div class="panel">
-          <div class="badge"><span class="spark"></span> Méthode simple • Résultats rapides</div>
-          <p class="quote">
-            “Le but : te donner un chemin clair. Tu suis, tu appliques, tu vois la différence. Pas de bla-bla,
-            pas d’options inutiles.”
-          </p>
-          <div class="mini-grid">
-            <div class="mini">
-              <div class="big">1 PDF</div>
-              <div class="cap">par pack, clair & direct</div>
-            </div>
-            <div class="mini">
-              <div class="big">Accès instant</div>
-              <div class="cap">après paiement Stripe</div>
-            </div>
-            <div class="mini">
-              <div class="big">Mobile OK</div>
-              <div class="cap">lecture facile partout</div>
-            </div>
-            <div class="mini">
-              <div class="big">3 niveaux</div>
-              <div class="cap">Express → Elite</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="badge"><span class="spark"></span> Garantie “zéro prise de tête”</div>
-          <p class="quote">
-            Si tu veux juste “un truc qui marche”, prends EXPRESS. Si tu veux optimiser plus finement, PERFORMANCE.
-            Si tu veux le guide complet, ELITE.
-          </p>
-          <p class="who">
-            <span class="stars">★★★★★</span> • Paiement sécurisé • Téléchargement immédiat
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="avis" class="section">
-      <h3>Avis & retours</h3>
-      <p>Tu peux remplacer ces textes par tes vrais retours quand tu en auras.</p>
-
-      <div class="proof" style="margin-top:16px;">
-        <div class="panel">
-          <div class="badge"><span class="spark"></span> “Plus fluide directement”</div>
-          <p class="quote">J’ai appliqué EXPRESS en 10 minutes. J’ai senti la différence tout de suite, surtout en fluidité.</p>
-          <div class="who">— Client Elyzio</div>
-        </div>
-        <div class="panel">
-          <div class="badge"><span class="spark"></span> “Clairement structuré”</div>
-          <p class="quote">Pas de blabla, c’est carré. PERFORMANCE m’a aidé à stabiliser et réduire les micro-lags.</p>
-          <div class="who">— Client Elyzio</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section">
-      <h3>FAQ</h3>
-      <p>Tout ce que les gens demandent avant d’acheter.</p>
-
+    <section class="section">
       <div class="faq">
-        <details>
-          <summary>Je reçois le PDF comment ? <span class="plus">+</span></summary>
-          <p>Après paiement Stripe, tu es redirigé vers une page “merci” avec le bouton de téléchargement. C’est immédiat.</p>
-        </details>
-
-        <details>
-          <summary>C’est compatible mobile ? <span class="plus">+</span></summary>
-          <p>Oui. Le PDF est lisible sur téléphone et ordinateur.</p>
-        </details>
-
-        <details>
-          <summary>Quel pack je dois prendre ? <span class="plus">+</span></summary>
-          <p><b>EXPRESS</b> = rapide. <b>PERFORMANCE</b> = plus complet. <b>ELITE</b> = guide total (10 chapitres).</p>
-        </details>
-
-        <details>
-          <summary>Le paiement est sécurisé ? <span class="plus">+</span></summary>
-          <p>Oui, Stripe gère le paiement. Tes infos bancaires ne passent pas par le site.</p>
-        </details>
-
-        <details>
-          <summary>Je peux acheter plusieurs packs ? <span class="plus">+</span></summary>
-          <p>Oui. Tu peux prendre le pack qui te correspond, ou monter en gamme plus tard.</p>
-        </details>
-
-        <details>
-          <summary>J’ai un souci après achat ? <span class="plus">+</span></summary>
-          <p>Ajoute ton email support ici (ex: <b>support@elyzio.fr</b>) et renvoie vers le règlement si besoin.</p>
-        </details>
+        <div class="q">
+          <b>Je reçois le PDF comment ?</b>
+          <p>Après paiement Stripe, tu arrives sur une page merci avec le lien de téléchargement.</p>
+        </div>
+        <div class="q">
+          <b>Ça marche sur mobile ?</b>
+          <p>Oui, lecture sur téléphone et PC.</p>
+        </div>
+        <div class="q">
+          <b>Un souci ?</b>
+          <p>Tu peux mettre ton email support ici plus tard + renvoi vers le règlement.</p>
+        </div>
       </div>
     </section>
 
     <footer>
-      <div>© <span id="year"></span> Elyzio — Tous droits réservés</div>
-      <div class="footlinks">
-        <a href="#packs">Packs</a>
-        <a href="#faq">FAQ</a>
-        <a href="reglement.html">Règlement</a>
-      </div>
+      <div>© <span id="year"></span> Elyzio</div>
+      <div><a href="reglement.html">Règlement</a></div>
     </footer>
   </main>
 
+  <!-- Sticky buy bar -->
   <div class="sticky">
     <div class="bar">
-      <div class="left">
-        <div class="chip"><span class="spark"></span> Téléchargement immédiat</div>
-        <div class="txt">Choisis ton pack → paiement Stripe → page merci → PDF.</div>
-      </div>
+      <div class="left"><span class="dot"></span> Choisis ton pack et achète en 1 clic.</div>
       <div class="right">
         <select id="packSelect" aria-label="Choisir un pack">
-          <option value="express">Boost EXPRESS — 5€</option>
-          <option value="performance">Boost PERFORMANCE — 10€</option>
-          <option value="elite">Boost ELITE — 20€</option>
+          <option value="express">EXPRESS — 5€</option>
+          <option value="performance">PERFORMANCE — 10€</option>
+          <option value="elite">ELITE — 20€</option>
         </select>
-        <a id="buyNow" class="btn btn-primary" href="#packs">Acheter</a>
+        <a id="buyNow" class="buyNow" href="#" target="_blank" rel="noopener">Acheter</a>
       </div>
     </div>
   </div>
@@ -852,27 +417,12 @@
     const sel = document.getElementById("packSelect");
     const buy = document.getElementById("buyNow");
 
-    function syncBuy() {
-      const v = sel.value;
-      const url = links[v] || "#packs";
-      buy.href = url;
-      buy.target = "_blank";
-      buy.rel = "noopener";
-      buy.textContent = "Acheter " + (v === "express" ? "EXPRESS" : v === "performance" ? "PERFORMANCE" : "ELITE");
+    function syncBuy(){
+      buy.href = links[sel.value] || "#packs";
+      buy.textContent = "Acheter " + sel.value.toUpperCase();
     }
     sel.addEventListener("change", syncBuy);
     syncBuy();
-
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener("click", (e)=>{
-        const href = a.getAttribute("href");
-        if (!href || href.length < 2) return;
-        const el = document.querySelector(href);
-        if (!el) return;
-        e.preventDefault();
-        el.scrollIntoView({behavior:"smooth", block:"start"});
-      });
-    });
   </script>
 </body>
 </html>
