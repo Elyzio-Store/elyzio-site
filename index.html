@@ -1,265 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ELYZIO — Boost Packs</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elyzio – Maîtrisez la Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#03050a;
-  --bg2:#071022;
-  --txt:#eef4ff;
-  --muted:rgba(238,244,255,.72);
-  --line:rgba(255,255,255,.10);
-  --neon:#00aaff;
-  --neon2:#1f5fff;
-  --glow:rgba(0,170,255,.45);
-  --r:22px;
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0b0f19;
+  color: white;
 }
 
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;color:var(--txt);}
-body{
-  background:
-    radial-gradient(900px 520px at 50% -10%, rgba(0,170,255,.28), transparent 60%),
-    linear-gradient(180deg, var(--bg), var(--bg2));
-  min-height:100vh;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 0;
 }
 
-a{color:inherit;text-decoration:none}
-.container{max-width:1160px;margin:0 auto;padding:0 22px;}
-
-header{
-  position:sticky; top:0;
-  background:rgba(2,4,9,.62);
-  backdrop-filter: blur(14px);
-  border-bottom:1px solid var(--line);
-}
-.top{
-  height:74px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.logo{
-  width:38px;height:38px;
-  border-radius:12px;
-  background:linear-gradient(135deg,var(--neon),var(--neon2));
-  display:grid;place-items:center;
-  font-weight:900;
-  box-shadow:0 0 34px var(--glow);
-}
-.brand{display:flex;align-items:center;gap:12px;font-weight:900;}
-nav{display:flex;gap:18px;}
-nav a{color:var(--muted);font-weight:800;}
-nav a:hover{color:var(--txt);}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:14px 20px;
-  border-radius:14px;
-  font-weight:900;
-  background:linear-gradient(135deg,var(--neon),var(--neon2));
-  color:white;
-  border:none;
-  cursor:pointer;
-  transition:.2s;
-}
-.btn:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(0,170,255,.6);}
-.btn--ghost{
-  background:transparent;
-  border:1px solid var(--line);
-}
-.btn--full{width:100%;}
-
-.hero{padding:80px 0;}
-.grid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:30px;
-}
-@media(max-width:980px){.grid{grid-template-columns:1fr;}}
-
-h1{
-  font-size:60px;
-  line-height:1;
-  margin:20px 0;
-  text-transform:uppercase;
-}
-.accent{
-  color:var(--neon);
-  text-shadow:0 0 25px rgba(0,170,255,.7);
+h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
-.lead{color:var(--muted);font-size:18px;line-height:1.6;}
-
-.panel{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.05);
-  border-radius:var(--r);
-  padding:20px;
+.highlight {
+  color: #00bfff;
 }
 
-.progress{
-  height:12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.08);
-  overflow:hidden;
-  margin:16px 0;
-}
-.bar{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,var(--neon2),var(--neon));
+.subtitle {
+  margin-top: 20px;
+  font-size: 18px;
+  opacity: 0.8;
 }
 
-.nums{
-  display:flex;
-  align-items:baseline;
-  gap:10px;
+.packs {
+  display: flex;
+  gap: 30px;
+  margin-top: 80px;
+  flex-wrap: wrap;
 }
-.big{font-size:30px;font-weight:900;}
-.small{color:var(--muted);font-weight:900;}
 
-.section{padding:40px 0;}
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-@media(max-width:980px){.cards{grid-template-columns:1fr;}}
+.card {
+  flex: 1;
+  min-width: 280px;
+  background: #121826;
+  padding:
 
-.card{
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.05);
-  border-radius:var(--r);
-  padding:20px;
-}
-.price{font-size:38px;font-weight:900;color:var(--neon);}
-.tickets{font-weight:900;color:var(--neon);margin:10px 0;}
 
-footer{
-  border-top:1px solid var(--line);
-  padding:20px 0;
-  color:var(--muted);
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<div class="container top">
-  <div class="brand"><div class="logo">⚡</div> ELYZIO</div>
-  <nav>
-    <a href="#packs">Nos Packs</a>
-    <a href="#tirage">Tirage</a>
-    <a href="reglement.html">Règlement</a>
-  </nav>
-  <a class="btn btn--ghost" href="#packs">Boutique</a>
-</div>
-</header>
-
-<main>
-<section class="hero">
-<div class="container grid">
-
-<div>
-<h1>Maîtrisez la Tech,<br><span class="accent">Visez l’Excellence</span></h1>
-<p class="lead">
-3 packs séparés (1 PDF par pack) pour optimiser ton setup.
-Téléchargement immédiat après paiement.
-</p>
-
-<div style="margin-top:20px;">
-<a class="btn" href="#packs">Voir les Packs</a>
-<a class="btn btn--ghost" href="#tirage">Objectif Tirage</a>
-</div>
-</div>
-
-<div class="panel" id="tirage">
-<h3>🎁 Objectif : 150 ventes</h3>
-<p style="color:var(--muted);">
-Tirage déclenché à 150 commandes validées.
-</p>
-
-<div class="progress"><div class="bar" id="bar"></div></div>
-
-<div class="nums">
-<span class="big" id="now">0</span>
-<span class="small">/</span>
-<span class="big">150</span>
-<span class="small">ventes</span>
-</div>
-
-<div style="margin-top:10px;">
-<a class="btn btn--ghost btn--full" href="reglement.html">Voir le règlement</a>
-</div>
-</div>
-
-</div>
-</section>
-
-<section class="section" id="packs">
-<div class="container">
-<div class="cards">
-
-<div class="card">
-<h3>🟢 Boost EXPRESS</h3>
-<div class="price">5€</div>
-<ul>
-<li>Optimisation rapide</li>
-<li>Réglages FPS</li>
-<li>Checklist erreurs</li>
-</ul>
-<div class="tickets">🎟 1 participation</div>
-<a class="btn btn--full" href="https://buy.stripe.com/00w14m74DbSpcpgfVQ38400" target="_blank">Acheter</a>
-</div>
-
-<div class="card">
-<h3>🟡 Boost PERFORMANCE</h3>
-<div class="price">10€</div>
-<ul>
-<li>Optimisation avancée</li>
-<li>Réduction latence</li>
-<li>Plan progression</li>
-</ul>
-<div class="tickets">🎟 3 participations</div>
-<a class="btn btn--full" href="https://buy.stripe.com/6oU9ASdt1g8F8909xs38401" target="_blank">Acheter</a>
-</div>
-
-<div class="card">
-<h3>🔵 Boost ELITE</h3>
-<div class="price">20€</div>
-<ul>
-<li>Guide complet 10 chapitres</li>
-<li>Setup pro</li>
-<li>Stratégie domination</li>
-</ul>
-<div class="tickets">🎟 10 participations</div>
-<a class="btn btn--full" href="https://buy.stripe.com/aFa4gy88H7C91KC8to38402" target="_blank">Acheter</a>
-</div>
-
-</div>
-</div>
-</section>
-</main>
-
-<footer>
-<div class="container">
-© ELYZIO — Paiement sécurisé • Téléchargement immédiat
-</div>
-</footer>
-
-<script>
-const NOW = 0;
-const GOAL = 150;
-document.getElementById("bar").style.width = (NOW/GOAL*100)+"%";
-document.getElementById("now").textContent = NOW;
-</script>
-
-</body>
-</html>
