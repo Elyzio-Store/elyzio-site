@@ -1,204 +1,544 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ELYZIO — Packs Boost</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELYZIO — Packs Boost</title>
+  <meta name="description" content="3 packs PDF pour booster ton setup. Paiement Stripe. Téléchargement immédiat après paiement." />
 
-<style>
-:root{
-  --bg:#060913;
-  --card:#0B1224;
-  --blue:#00B7FF;
-  --cyan:#00FFE0;
-  --text:rgba(255,255,255,.92);
-  --muted:rgba(255,255,255,.65);
-}
+  <style>
+    :root{
+      --bg:#060913;
+      --panel:#0B1224;
+      --panel2:#0A0F1D;
+      --stroke:rgba(255,255,255,.10);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.65);
+      --faint:rgba(255,255,255,.52);
+      --blue:#00B7FF;
+      --blue2:#2F7BFF;
+      --cyan:#00FFE0;
+      --green:#39FF88;
+      --yellow:#FFD25A;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --r:22px;
+      --max:1100px;
+    }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto;
-  background:
-    radial-gradient(900px 600px at 50% -10%, rgba(0,183,255,.25), transparent 60%),
-    radial-gradient(800px 500px at 50% 120%, rgba(0,255,224,.10), transparent 60%),
-    linear-gradient(180deg,#04070F,#060913);
-  color:var(--text);
-}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1000px 700px at 50% -10%, rgba(0,183,255,.25), transparent 60%),
+        radial-gradient(900px 600px at 80% 10%, rgba(47,123,255,.14), transparent 60%),
+        radial-gradient(900px 600px at 50% 120%, rgba(0,255,224,.10), transparent 60%),
+        linear-gradient(180deg,#04070F,#060913);
+      overflow-x:hidden;
+    }
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding:100px 20px 60px;
-  position:relative;
-}
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 16px 92px;}
 
-/* Big Title */
-.title{
-  font-size:90px;
-  font-weight:900;
-  letter-spacing:12px;
-  background:linear-gradient(90deg,#fff 0%,var(--blue) 50%,var(--cyan) 70%,#fff 100%);
-  -webkit-background-clip:text;
-  color:transparent;
-  position:relative;
-  display:inline-block;
-  animation:glow 3s ease-in-out infinite;
-}
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,10,18,.78) 0%, rgba(7,10,18,.35) 100%);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      max-width:var(--max); margin:0 auto; padding:14px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:950; letter-spacing:.5px;
+    }
+    .orb{
+      width:32px; height:32px; border-radius:10px;
+      background: radial-gradient(circle at 30% 30%, rgba(0,183,255,.95), rgba(47,123,255,.55) 45%, rgba(0,0,0,.25) 75%);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 0 0 6px rgba(0,183,255,.06), 0 12px 35px rgba(0,0,0,.45);
+    }
+    .navlinks{display:flex; gap:16px; align-items:center;}
+    .navlinks a{font-size:14px; color:var(--muted)}
+    .navlinks a:hover{color:rgba(255,255,255,.92)}
+    .cta{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:14px;
+      border:1px solid rgba(0,183,255,.35);
+      background: linear-gradient(135deg, rgba(0,183,255,.22), rgba(47,123,255,.10));
+      font-weight:950;
+      color:rgba(255,255,255,.92);
+      box-shadow: 0 18px 55px rgba(0,183,255,.14);
+      transition: transform .15s ease;
+      white-space:nowrap;
+    }
+    .cta:hover{transform:translateY(-1px)}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--blue);box-shadow:0 0 18px rgba(0,183,255,.65)}
 
-/* Light under title */
-.title::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:-30px;
-  width:350px;
-  height:90px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(0,183,255,.6),rgba(0,183,255,0) 70%);
-  filter:blur(20px);
-  animation:pulse 3s ease-in-out infinite;
-}
+    /* Hero */
+    .hero{
+      margin-top:16px;
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(11,18,36,.82), rgba(10,15,29,.50));
+      border-radius: calc(var(--r) + 8px);
+      box-shadow: var(--shadow);
+      padding:54px 18px 34px;
+      position:relative;
+      overflow:hidden;
+      text-align:center;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(900px 320px at 20% 0%, rgba(0,183,255,.18), transparent 55%),
+        radial-gradient(850px 320px at 85% 10%, rgba(0,255,224,.10), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .title{
+      margin:0;
+      font-size:78px;
+      line-height:1;
+      letter-spacing:10px;
+      font-weight:1000;
+      text-transform:uppercase;
+      position:relative;
+      display:inline-block;
+      background: linear-gradient(90deg, #ffffff 0%, var(--blue) 45%, var(--cyan) 65%, #ffffff 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow: 0 0 20px rgba(0,183,255,.18), 0 0 60px rgba(0,183,255,.10);
+      animation: titleGlow 2.8s ease-in-out infinite;
+    }
+    .title::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:-32px;
+      width:380px;
+      height:96px;
+      border-radius:999px;
+      background: radial-gradient(closest-side, rgba(0,183,255,.55), rgba(0,183,255,.18) 45%, rgba(0,183,255,0) 72%);
+      filter: blur(18px);
+      opacity:.9;
+      animation:pulse 3s ease-in-out infinite;
+      pointer-events:none;
+      z-index:-1;
+    }
+    .title::after{
+      content:"";
+      position:absolute;
+      top:-30%;
+      left:-60%;
+      width:60%;
+      height:160%;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.14) 45%, rgba(255,255,255,0) 100%);
+      transform: skewX(-18deg);
+      filter: blur(1px);
+      mix-blend-mode: screen;
+      animation: shimmer 3.6s ease-in-out infinite;
+      pointer-events:none;
+    }
+    @keyframes titleGlow{
+      0%,100%{filter: drop-shadow(0 0 0 rgba(0,183,255,0))}
+      50%{filter: drop-shadow(0 0 18px rgba(0,183,255,.28))}
+    }
+    @keyframes shimmer{
+      0%{left:-65%; opacity:0}
+      25%{opacity:0}
+      45%{opacity:.85}
+      60%{opacity:0}
+      100%{left:115%; opacity:0}
+    }
+    @keyframes pulse{
+      0%,100%{opacity:.75; transform:translateX(-50%) scale(1)}
+      50%{opacity:1; transform:translateX(-50%) scale(1.08)}
+    }
+    .subtitle{
+      margin:18px auto 0;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.6;
+      max-width: 60ch;
+    }
+    .chips{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      color:rgba(255,255,255,.82);
+      font-size:13px;
+    }
+    .check{
+      width:16px;height:16px;border-radius:6px;
+      background: rgba(0,183,255,.12);
+      border:1px solid rgba(0,183,255,.22);
+      position:relative;
+    }
+    .check::after{
+      content:"";
+      position:absolute; left:5px; top:3px;
+      width:6px; height:9px;
+      border-right:2px solid rgba(0,183,255,.95);
+      border-bottom:2px solid rgba(0,183,255,.95);
+      transform: rotate(40deg);
+    }
 
-@keyframes glow{
-  0%,100%{text-shadow:0 0 10px rgba(0,183,255,.3)}
-  50%{text-shadow:0 0 30px rgba(0,183,255,.8)}
-}
+    /* Packs */
+    .section{margin-top:18px}
+    .section-title{
+      margin:0 0 10px;
+      font-size:20px;
+      font-weight:950;
+      color:rgba(255,255,255,.92);
+    }
+    .section-sub{
+      margin:0 0 14px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(11,18,36,.82), rgba(10,15,29,.45));
+      border-radius: var(--r);
+      box-shadow: 0 14px 45px rgba(0,0,0,.40);
+      padding:16px;
+      transition: transform .18s ease, border-color .18s ease;
+      min-height: 320px;
+    }
+    .card:hover{transform: translateY(-6px); border-color: rgba(0,183,255,.25)}
+    .tag{display:flex; align-items:center; gap:10px; font-weight:950}
+    .tag i{width:10px;height:10px;border-radius:50%}
+    .g{background:var(--green); box-shadow:0 0 18px rgba(57,255,136,.35)}
+    .y{background:var(--yellow); box-shadow:0 0 18px rgba(255,210,90,.25)}
+    .b{background:var(--blue); box-shadow:0 0 18px rgba(0,183,255,.45)}
+    .price{
+      font-size:44px;
+      font-weight:1000;
+      margin:12px 0 8px;
+      letter-spacing:-.8px;
+      background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(0,183,255,.95));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .one{color:var(--muted); font-size:13px; margin-bottom:10px;}
+    ul{margin:12px 0 0; padding:0; list-style:none}
+    li{
+      display:flex; gap:10px;
+      padding:10px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+      color:rgba(255,255,255,.84);
+      font-size:14px;
+    }
+    li:first-child{border-top:0}
+    .tick{
+      width:18px;height:18px;border-radius:7px;
+      background: rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.10);
+      position:relative; flex:none; margin-top:1px;
+    }
+    .tick::after{
+      content:"";
+      position:absolute; left:5px; top:3px;
+      width:6px; height:9px;
+      border-right:2px solid rgba(255,255,255,.85);
+      border-bottom:2px solid rgba(255,255,255,.85);
+      transform: rotate(40deg);
+    }
+    .btn{
+      margin-top:14px;
+      width:100%;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(0,183,255,.40);
+      background: linear-gradient(135deg, rgba(0,183,255,.26), rgba(47,123,255,.12));
+      font-weight:1000;
+      cursor:pointer;
+      transition: transform .15s ease;
+      user-select:none;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .hint{margin-top:8px; font-size:12px; color:rgba(255,255,255,.55); text-align:center;}
 
-@keyframes pulse{
-  0%,100%{opacity:.7;transform:translateX(-50%) scale(1)}
-  50%{opacity:1;transform:translateX(-50%) scale(1.1)}
-}
+    /* Reviews */
+    .reviews{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .review{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding:14px;
+    }
+    .stars{letter-spacing:1px; color:rgba(255,255,255,.85); font-size:13px}
+    .review p{margin:10px 0 0; color:rgba(255,255,255,.82); line-height:1.55; font-size:14px}
+    .who{margin-top:10px; color:var(--faint); font-size:12px}
 
-.subtitle{
-  margin-top:40px;
-  font-size:20px;
-  color:var(--muted);
-}
+    /* Mini FAQ */
+    .faq{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:12px;
+    }
+    .q{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding:14px;
+    }
+    .q b{display:block; margin-bottom:6px}
+    .q p{margin:0; color:var(--muted); line-height:1.55; font-size:13px}
 
-/* PACKS */
-.packs{
-  max-width:1100px;
-  margin:60px auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  padding:0 20px;
-}
+    footer{
+      margin-top:22px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.06);
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      color:rgba(255,255,255,.55);
+      font-size:13px;
+    }
+    footer a{color:rgba(255,255,255,.72)}
+    footer a:hover{color:rgba(255,255,255,.92)}
 
-.card{
-  background:linear-gradient(180deg,var(--card),#0A0F1D);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:20px;
-  padding:30px;
-  text-align:center;
-  transition:.2s;
-}
+    /* Sticky buy */
+    .sticky{
+      position:fixed; left:0; right:0; bottom:14px; z-index:60;
+      display:flex; justify-content:center; padding:0 14px;
+    }
+    .bar{
+      max-width:var(--max);
+      width:100%;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(11,18,36,.76), rgba(7,10,18,.55));
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.55);
+      padding:12px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .bar .left{display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.80); font-size:13px}
+    .bar .right{display:flex; align-items:center; gap:10px}
+    select{
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.14);
+      color:rgba(255,255,255,.92);
+      padding:10px 12px;
+      border-radius:14px;
+      outline:none;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .buyNow{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(0,183,255,.45);
+      background: linear-gradient(135deg, rgba(0,183,255,.30), rgba(47,123,255,.14));
+      font-weight:1000;
+      white-space:nowrap;
+      transition: transform .15s ease;
+    }
+    .buyNow:hover{transform:translateY(-1px)}
 
-.card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(0,183,255,.4);
-}
-
-.card h3{
-  margin:0;
-  font-size:20px;
-  letter-spacing:1px;
-}
-
-.price{
-  font-size:50px;
-  font-weight:900;
-  margin:20px 0;
-  background:linear-gradient(90deg,#fff,var(--blue));
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-ul{
-  list-style:none;
-  padding:0;
-  margin:20px 0;
-}
-
-li{
-  margin:10px 0;
-  color:var(--muted);
-}
-
-.btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:12px 20px;
-  border-radius:12px;
-  border:1px solid rgba(0,183,255,.4);
-  background:linear-gradient(135deg,rgba(0,183,255,.4),rgba(0,255,224,.2));
-  font-weight:700;
-  text-decoration:none;
-  color:#fff;
-  transition:.2s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
-}
-
-/* Responsive */
-@media(max-width:900px){
-  .title{font-size:60px}
-  .packs{grid-template-columns:1fr}
-}
-</style>
+    /* Responsive */
+    @media (max-width: 980px){
+      .title{font-size:54px; letter-spacing:7px}
+      .subtitle{font-size:16px}
+      .cards, .reviews, .faq{grid-template-columns: 1fr}
+      .bar{flex-direction:column; align-items:stretch}
+      .bar .right{justify-content:space-between}
+      .navlinks{gap:10px}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .title, .title::after, .title::before{animation:none !important}
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="nav">
+      <div class="brand"><span class="orb"></span> Elyzio</div>
+      <div class="navlinks">
+        <a href="#packs">Packs</a>
+        <a href="#avis">Avis</a>
+        <a href="reglement.html">Règlement</a>
+      </div>
+      <a class="cta" href="#packs"><span class="dot"></span> Acheter</a>
+    </div>
+  </header>
 
-<section class="hero">
-  <div class="title">ELYZIO</div>
-  <div class="subtitle">
-    Boost ton setup. Choisis ton pack.<br>
-    Paiement Stripe → téléchargement immédiat.
+  <main class="wrap">
+    <section class="hero">
+      <div class="title">ELYZIO</div>
+      <p class="subtitle">
+        Boost ton setup. Choisis ton pack.<br>
+        Paiement Stripe → téléchargement immédiat du PDF.
+      </p>
+      <div class="chips">
+        <span class="chip"><span class="check"></span> Accès instant</span>
+        <span class="chip"><span class="check"></span> Paiement sécurisé</span>
+        <span class="chip"><span class="check"></span> Lisible mobile</span>
+      </div>
+    </section>
+
+    <section id="packs" class="section">
+      <h2 class="section-title">Les 3 packs</h2>
+      <p class="section-sub">Choisis selon ton niveau. Téléchargement immédiat après paiement.</p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="tag"><i class="g"></i> Boost EXPRESS</div>
+          <div class="price">5€</div>
+          <div class="one">Rapide, efficace.</div>
+          <ul>
+            <li><span class="tick"></span><span>Optimisation essentielle</span></li>
+            <li><span class="tick"></span><span>Fluidité / FPS</span></li>
+            <li><span class="tick"></span><span>Checklist simple</span></li>
+          </ul>
+          <a class="btn" href="https://buy.stripe.com/00w14m74DbSpcpgfVQ38400" target="_blank" rel="noopener">Acheter EXPRESS</a>
+          <div class="hint">Téléchargement immédiat</div>
+        </article>
+
+        <article class="card">
+          <div class="tag"><i class="y"></i> Boost PERFORMANCE</div>
+          <div class="price">10€</div>
+          <div class="one">Le meilleur choix.</div>
+          <ul>
+            <li><span class="tick"></span><span>Optimisation avancée</span></li>
+            <li><span class="tick"></span><span>Latence / stabilité</span></li>
+            <li><span class="tick"></span><span>Plus complet</span></li>
+          </ul>
+          <a class="btn" href="https://buy.stripe.com/6oU9ASdt1g8F8909xs38401" target="_blank" rel="noopener">Acheter PERFORMANCE</a>
+          <div class="hint">Téléchargement immédiat</div>
+        </article>
+
+        <article class="card">
+          <div class="tag"><i class="b"></i> Boost ELITE</div>
+          <div class="price">20€</div>
+          <div class="one">Le guide complet.</div>
+          <ul>
+            <li><span class="tick"></span><span>Optimisation totale</span></li>
+            <li><span class="tick"></span><span>Guide complet (10 chapitres)</span></li>
+            <li><span class="tick"></span><span>Pour tout maîtriser</span></li>
+          </ul>
+          <a class="btn" href="https://buy.stripe.com/aFa4gy88H7C91KC8to38402" target="_blank" rel="noopener">Acheter ELITE</a>
+          <div class="hint">Téléchargement immédiat</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="avis" class="section">
+      <h2 class="section-title">Avis</h2>
+      <p class="section-sub">Exemples de retours réalistes (à remplacer par tes vrais avis au fur et à mesure).</p>
+
+      <div class="reviews">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“EXPRESS est clean. J’ai appliqué en 15 min, j’ai senti la diff direct sur la fluidité.”</p>
+          <div class="who">— Lucas • PC gamer</div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“PERFORMANCE est le meilleur. C’est carré, pas de blabla, et j’ai réduit mes micro-lags.”</p>
+          <div class="who">— Mehdi • Warzone</div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★☆</div>
+          <p>“ELITE est bien détaillé. J’ai tout refait étape par étape, c’est plus stable qu’avant.”</p>
+          <div class="who">— Anaïs • Setup streaming</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq">
+        <div class="q">
+          <b>Je reçois le PDF comment ?</b>
+          <p>Après paiement Stripe, tu arrives sur une page merci avec le bouton de téléchargement.</p>
+        </div>
+        <div class="q">
+          <b>Ça marche sur mobile ?</b>
+          <p>Oui, lecture sur téléphone et PC.</p>
+        </div>
+        <div class="q">
+          <b>Un souci ?</b>
+          <p>Regarde la page Règlement. Tu peux aussi ajouter un email support plus tard.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Elyzio</div>
+      <div>
+        <a href="#packs">Packs</a> •
+        <a href="#avis">Avis</a> •
+        <a href="reglement.html">Règlement</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Sticky buy bar -->
+  <div class="sticky">
+    <div class="bar">
+      <div class="left"><span class="dot"></span> Achat rapide</div>
+      <div class="right">
+        <select id="packSelect" aria-label="Choisir un pack">
+          <option value="express">EXPRESS — 5€</option>
+          <option value="performance">PERFORMANCE — 10€</option>
+          <option value="elite">ELITE — 20€</option>
+        </select>
+        <a id="buyNow" class="buyNow" href="#" target="_blank" rel="noopener">Acheter</a>
+      </div>
+    </div>
   </div>
-</section>
 
-<section class="packs">
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  <div class="card">
-    <h3>Boost EXPRESS</h3>
-    <div class="price">5€</div>
-    <ul>
-      <li>Optimisation essentielle</li>
-      <li>Fluidité / FPS</li>
-      <li>Checklist simple</li>
-    </ul>
-    <a class="btn" href="https://buy.stripe.com/00w14m74DbSpcpgfVQ38400" target="_blank">Acheter</a>
-  </div>
+    const links = {
+      express: "https://buy.stripe.com/00w14m74DbSpcpgfVQ38400",
+      performance: "https://buy.stripe.com/6oU9ASdt1g8F8909xs38401",
+      elite: "https://buy.stripe.com/aFa4gy88H7C91KC8to38402"
+    };
 
-  <div class="card">
-    <h3>Boost PERFORMANCE</h3>
-    <div class="price">10€</div>
-    <ul>
-      <li>Optimisation avancée</li>
-      <li>Latence / stabilité</li>
-      <li>Plus complet</li>
-    </ul>
-    <a class="btn" href="https://buy.stripe.com/6oU9ASdt1g8F8909xs38401" target="_blank">Acheter</a>
-  </div>
+    const sel = document.getElementById("packSelect");
+    const buy = document.getElementById("buyNow");
 
-  <div class="card">
-    <h3>Boost ELITE</h3>
-    <div class="price">20€</div>
-    <ul>
-      <li>Optimisation totale</li>
-      <li>Guide complet</li>
-      <li>Pour tout maîtriser</li>
-    </ul>
-    <a class="btn" href="https://buy.stripe.com/aFa4gy88H7C91KC8to38402" target="_blank">Acheter</a>
-  </div>
-
-</section>
-
+    function syncBuy(){
+      buy.href = links[sel.value] || "#packs";
+      buy.textContent = "Acheter " + sel.value.toUpperCase();
+    }
+    sel.addEventListener("change", syncBuy);
+    syncBuy();
+  </script>
 </body>
 </html>
 
