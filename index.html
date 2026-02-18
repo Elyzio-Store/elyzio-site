@@ -1,303 +1,621 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ELYZIO — Packs Boost</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELYZIO — Packs Boost</title>
+  <meta name="description" content="3 packs PDF pour booster ton setup. Paiement Stripe. Téléchargement immédiat après paiement." />
 
-<style>
-:root{
-  --bg:#060913;
-  --panel:#0B1224;
-  --panel2:#0A0F1D;
-  --stroke:rgba(255,255,255,.10);
-  --text:rgba(255,255,255,.92);
-  --muted:rgba(255,255,255,.65);
-  --blue:#00B7FF;
-  --cyan:#00FFE0;
-  --green:#39FF88;
-  --yellow:#FFD25A;
-  --r:22px;
-  --max:1100px;
-}
+  <style>
+    :root{
+      --bg1:#040717;
+      --bg2:#060B1F;
+      --panel:#0A1230;
+      --panel2:#070C1E;
+      --stroke:rgba(255,255,255,.10);
+      --stroke2:rgba(0,183,255,.30);
+      --text:rgba(255,255,255,.93);
+      --muted:rgba(255,255,255,.68);
+      --faint:rgba(255,255,255,.52);
+      --blue:#00B7FF;
+      --blue2:#2F7BFF;
+      --cyan:#00FFE0;
+      --glow:rgba(0,183,255,.55);
+      --glow2:rgba(0,255,224,.35);
+      --green:#39FF88;
+      --yellow:#FFD25A;
+      --r:24px;
+      --max:1100px;
+      --shadow: 0 22px 80px rgba(0,0,0,.60);
+    }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto;
-  color:var(--text);
-  background:
-    radial-gradient(900px 600px at 50% -10%, rgba(0,183,255,.25), transparent 60%),
-    radial-gradient(900px 600px at 50% 120%, rgba(0,255,224,.10), transparent 60%),
-    linear-gradient(180deg,#04070F,#060913);
-}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica Neue,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1100px 700px at 20% -10%, rgba(0,183,255,.38), transparent 55%),
+        radial-gradient(900px 650px at 85% 5%, rgba(47,123,255,.25), transparent 55%),
+        radial-gradient(900px 650px at 55% 120%, rgba(0,255,224,.18), transparent 60%),
+        radial-gradient(600px 420px at 20% 80%, rgba(0,183,255,.15), transparent 60%),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 55%, #040717 100%);
+      overflow-x:hidden;
+    }
 
-a{text-decoration:none;color:inherit}
-.wrap{max-width:var(--max);margin:auto;padding:20px}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:18px 16px 96px;}
 
-/* HEADER */
-header{
-  position:sticky;top:0;
-  backdrop-filter:blur(14px);
-  background:rgba(7,10,18,.75);
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-.nav{
-  max-width:var(--max);
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.brand{font-weight:900;font-size:18px}
-.cta{
-  padding:8px 16px;
-  border-radius:12px;
-  border:1px solid rgba(0,183,255,.4);
-  background:linear-gradient(135deg,rgba(0,183,255,.3),rgba(0,255,224,.2));
-  font-weight:700;
-}
+    /* ====== HEADER ====== */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(180deg, rgba(4,7,23,.78) 0%, rgba(4,7,23,.35) 100%);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      max-width:var(--max); margin:0 auto; padding:14px 16px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:1000; letter-spacing:.6px;
+    }
+    .orb{
+      width:34px; height:34px; border-radius:12px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(0,255,224,.95), rgba(0,183,255,.55) 45%, rgba(0,0,0,.25) 76%);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:
+        0 0 0 7px rgba(0,183,255,.10),
+        0 18px 60px rgba(0,183,255,.22),
+        0 18px 60px rgba(0,0,0,.45);
+    }
+    .navlinks{display:flex; gap:16px; align-items:center;}
+    .navlinks a{font-size:14px; color:rgba(255,255,255,.78)}
+    .navlinks a:hover{color:rgba(255,255,255,.95)}
+    .cta{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius:14px;
+      border:1px solid rgba(0,183,255,.45);
+      background: linear-gradient(135deg, rgba(0,183,255,.32), rgba(0,255,224,.14));
+      font-weight:1000;
+      box-shadow: 0 18px 65px rgba(0,183,255,.25);
+      transition: transform .15s ease;
+      white-space:nowrap;
+    }
+    .cta:hover{transform:translateY(-1px)}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 22px rgba(0,255,224,.70)}
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding:100px 20px 60px;
-  position:relative;
-}
-.title{
-  font-size:80px;
-  font-weight:900;
-  letter-spacing:10px;
-  background:linear-gradient(90deg,#fff,var(--blue),var(--cyan),#fff);
-  -webkit-background-clip:text;
-  color:transparent;
-  position:relative;
-  animation:glow 3s infinite;
-}
-.title::before{
-  content:"";
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:-30px;
-  width:350px;
-  height:90px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(0,183,255,.6),rgba(0,183,255,0) 70%);
-  filter:blur(20px);
-  animation:pulse 3s infinite;
-}
-@keyframes glow{
-  0%,100%{text-shadow:0 0 10px rgba(0,183,255,.3)}
-  50%{text-shadow:0 0 30px rgba(0,183,255,.9)}
-}
-@keyframes pulse{
-  0%,100%{opacity:.7}
-  50%{opacity:1}
-}
-.subtitle{
-  margin-top:40px;
-  font-size:18px;
-  color:var(--muted);
-}
+    /* ====== HERO ====== */
+    .hero{
+      margin-top:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(10,18,48,.78), rgba(7,12,30,.50));
+      border-radius: calc(var(--r) + 10px);
+      box-shadow: var(--shadow);
+      padding:62px 18px 36px;
+      position:relative;
+      overflow:hidden;
+      text-align:center;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(900px 380px at 25% 0%, rgba(0,183,255,.30), transparent 60%),
+        radial-gradient(850px 360px at 80% 10%, rgba(0,255,224,.18), transparent 60%),
+        radial-gradient(1000px 420px at 50% 120%, rgba(47,123,255,.18), transparent 60%);
+      opacity:1;
+      pointer-events:none;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(1px 1px at 10% 25%, rgba(255,255,255,.22), transparent 2px),
+        radial-gradient(1px 1px at 35% 12%, rgba(255,255,255,.18), transparent 2px),
+        radial-gradient(1px 1px at 62% 22%, rgba(255,255,255,.20), transparent 2px),
+        radial-gradient(1px 1px at 78% 14%, rgba(255,255,255,.18), transparent 2px),
+        radial-gradient(1px 1px at 88% 28%, rgba(255,255,255,.16), transparent 2px),
+        radial-gradient(1px 1px at 25% 72%, rgba(255,255,255,.14), transparent 2px),
+        radial-gradient(1px 1px at 70% 76%, rgba(255,255,255,.12), transparent 2px);
+      opacity:.55;
+      pointer-events:none;
+      filter: blur(.2px);
+    }
 
-/* PACKS */
-.packs{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-top:40px;
-}
-.card{
-  background:linear-gradient(180deg,var(--panel),var(--panel2));
-  border:1px solid var(--stroke);
-  border-radius:var(--r);
-  padding:25px;
-  text-align:center;
-  transition:.2s;
-}
-.card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(0,183,255,.4);
-}
-.price{
-  font-size:48px;
-  font-weight:900;
-  margin:20px 0;
-  background:linear-gradient(90deg,#fff,var(--blue));
-  -webkit-background-clip:text;
-  color:transparent;
-}
-ul{list-style:none;padding:0}
-li{margin:10px 0;color:var(--muted)}
-.btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:12px 20px;
-  border-radius:12px;
-  border:1px solid rgba(0,183,255,.4);
-  background:linear-gradient(135deg,rgba(0,183,255,.4),rgba(0,255,224,.2));
-  font-weight:700;
-}
+    .title{
+      margin:0;
+      font-size:84px;
+      line-height:1;
+      letter-spacing:10px;
+      font-weight:1100;
+      text-transform:uppercase;
+      position:relative;
+      display:inline-block;
+      background: linear-gradient(90deg, #ffffff 0%, var(--cyan) 30%, var(--blue) 55%, #ffffff 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow:
+        0 0 22px rgba(0,255,224,.20),
+        0 0 70px rgba(0,183,255,.18);
+      animation: floaty 3.4s ease-in-out infinite;
+    }
+    /* big neon under title */
+    .title::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:-34px;
+      width:420px;
+      height:110px;
+      border-radius:999px;
+      background:
+        radial-gradient(closest-side, rgba(0,255,224,.55), rgba(0,255,224,.20) 45%, rgba(0,255,224,0) 72%),
+        radial-gradient(closest-side, rgba(0,183,255,.55), rgba(0,183,255,.18) 50%, rgba(0,183,255,0) 78%);
+      filter: blur(18px);
+      opacity:1;
+      animation:pulse 2.8s ease-in-out infinite;
+      pointer-events:none;
+      z-index:-1;
+    }
+    /* shimmer */
+    .title::after{
+      content:"";
+      position:absolute;
+      top:-30%;
+      left:-70%;
+      width:65%;
+      height:170%;
+      background: linear-gradient(120deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,.22) 45%,
+        rgba(255,255,255,0) 100%);
+      transform: skewX(-18deg);
+      filter: blur(1px);
+      mix-blend-mode: screen;
+      animation: shimmer 3.2s ease-in-out infinite;
+      pointer-events:none;
+    }
 
-/* AVIS */
-.section-title{
-  margin-top:80px;
-  font-size:22px;
-  font-weight:900;
-}
-.reviews{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-top:20px;
-}
-.review{
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--stroke);
-  border-radius:20px;
-  padding:20px;
-}
-.review p{color:rgba(255,255,255,.85)}
-.who{margin-top:10px;color:var(--muted);font-size:13px}
+    @keyframes shimmer{
+      0%{left:-75%; opacity:0}
+      20%{opacity:0}
+      42%{opacity:.95}
+      60%{opacity:0}
+      100%{left:120%; opacity:0}
+    }
+    @keyframes pulse{
+      0%,100%{opacity:.85; transform:translateX(-50%) scale(1)}
+      50%{opacity:1; transform:translateX(-50%) scale(1.10)}
+    }
+    @keyframes floaty{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-3px)}
+    }
 
-/* FAQ */
-.faq{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-top:40px;
-}
-.q{
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--stroke);
-  border-radius:20px;
-  padding:20px;
-}
-.q p{color:var(--muted)}
+    .subtitle{
+      margin:18px auto 0;
+      color:rgba(255,255,255,.78);
+      font-size:18px;
+      line-height:1.6;
+      max-width: 62ch;
+    }
 
-/* FOOTER */
-footer{
-  margin-top:60px;
-  padding:20px;
-  text-align:center;
-  border-top:1px solid rgba(255,255,255,.06);
-  color:var(--muted);
-}
+    .chips{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(0,183,255,.20);
+      background: rgba(0,183,255,.08);
+      color:rgba(255,255,255,.86);
+      font-size:13px;
+      box-shadow: 0 10px 30px rgba(0,183,255,.10);
+    }
+    .check{
+      width:16px;height:16px;border-radius:6px;
+      background: rgba(0,255,224,.14);
+      border:1px solid rgba(0,255,224,.25);
+      position:relative;
+    }
+    .check::after{
+      content:"";
+      position:absolute; left:5px; top:3px;
+      width:6px; height:9px;
+      border-right:2px solid rgba(0,255,224,.95);
+      border-bottom:2px solid rgba(0,255,224,.95);
+      transform: rotate(40deg);
+    }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .packs,.reviews,.faq{grid-template-columns:1fr}
-  .title{font-size:55px}
-}
-</style>
+    /* ====== SECTIONS ====== */
+    .section{margin-top:22px}
+    .section-title{
+      margin:0 0 10px;
+      font-size:22px;
+      font-weight:1000;
+      letter-spacing:.2px;
+    }
+    .section-sub{
+      margin:0 0 14px;
+      color:rgba(255,255,255,.70);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* ====== CARDS ====== */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      position:relative;
+      border-radius: var(--r);
+      padding:16px;
+      background: linear-gradient(180deg, rgba(10,18,48,.78), rgba(7,12,30,.45));
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: 0 18px 65px rgba(0,0,0,.45);
+      overflow:hidden;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+      min-height: 330px;
+    }
+    /* neon rim */
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: linear-gradient(135deg, rgba(0,255,224,.45), rgba(0,183,255,.25), rgba(47,123,255,.25));
+      opacity:.20;
+      filter: blur(10px);
+      pointer-events:none;
+    }
+    .card:hover{
+      transform: translateY(-8px);
+      border-color: rgba(0,255,224,.28);
+      box-shadow:
+        0 24px 90px rgba(0,0,0,.55),
+        0 0 0 1px rgba(0,183,255,.15),
+        0 18px 80px rgba(0,183,255,.18);
+    }
+
+    .tag{display:flex; align-items:center; gap:10px; font-weight:1000; position:relative; z-index:2}
+    .tag i{width:10px;height:10px;border-radius:50%}
+    .g{background:var(--green); box-shadow:0 0 18px rgba(57,255,136,.35)}
+    .y{background:var(--yellow); box-shadow:0 0 18px rgba(255,210,90,.25)}
+    .b{background:var(--cyan); box-shadow:0 0 20px rgba(0,255,224,.50)}
+
+    .price{
+      font-size:48px;
+      font-weight:1100;
+      margin:12px 0 8px;
+      letter-spacing:-.8px;
+      background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(0,255,224,.95), rgba(0,183,255,.95));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      position:relative; z-index:2;
+    }
+    .one{color:rgba(255,255,255,.70); font-size:13px; margin-bottom:10px; position:relative; z-index:2}
+
+    ul{margin:12px 0 0; padding:0; list-style:none; position:relative; z-index:2}
+    li{
+      display:flex; gap:10px;
+      padding:10px 0;
+      border-top:1px solid rgba(255,255,255,.06);
+      color:rgba(255,255,255,.85);
+      font-size:14px;
+    }
+    li:first-child{border-top:0}
+    .tick{
+      width:18px;height:18px;border-radius:7px;
+      background: rgba(0,183,255,.10);
+      border:1px solid rgba(0,183,255,.22);
+      position:relative; flex:none; margin-top:1px;
+      box-shadow: 0 10px 25px rgba(0,183,255,.12);
+    }
+    .tick::after{
+      content:"";
+      position:absolute; left:5px; top:3px;
+      width:6px; height:9px;
+      border-right:2px solid rgba(0,255,224,.95);
+      border-bottom:2px solid rgba(0,255,224,.95);
+      transform: rotate(40deg);
+    }
+
+    .btn{
+      margin-top:14px;
+      width:100%;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(0,255,224,.35);
+      background: linear-gradient(135deg, rgba(0,255,224,.22), rgba(0,183,255,.22), rgba(47,123,255,.10));
+      font-weight:1100;
+      cursor:pointer;
+      transition: transform .15s ease, box-shadow .15s ease;
+      user-select:none;
+      position:relative; z-index:2;
+      box-shadow: 0 16px 55px rgba(0,183,255,.18);
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow: 0 18px 70px rgba(0,255,224,.16), 0 18px 70px rgba(0,183,255,.18);
+    }
+    .hint{margin-top:8px; font-size:12px; color:rgba(255,255,255,.55); text-align:center; position:relative; z-index:2}
+
+    /* ====== REVIEWS ====== */
+    .reviews{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .review{
+      border:1px solid rgba(0,183,255,.18);
+      background: linear-gradient(180deg, rgba(0,183,255,.08), rgba(255,255,255,.03));
+      border-radius: 18px;
+      padding:14px;
+      box-shadow: 0 18px 70px rgba(0,183,255,.10);
+    }
+    .stars{letter-spacing:1px; color:rgba(255,255,255,.92); font-size:13px}
+    .review p{margin:10px 0 0; color:rgba(255,255,255,.88); line-height:1.55; font-size:14px}
+    .who{margin-top:10px; color:rgba(255,255,255,.60); font-size:12px}
+
+    /* ====== FAQ ====== */
+    .faq{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:12px;
+    }
+    .q{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      border-radius: 18px;
+      padding:14px;
+    }
+    .q b{display:block; margin-bottom:6px}
+    .q p{margin:0; color:rgba(255,255,255,.70); line-height:1.55; font-size:13px}
+
+    footer{
+      margin-top:22px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.06);
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      color:rgba(255,255,255,.58);
+      font-size:13px;
+    }
+    footer a{color:rgba(255,255,255,.76)}
+    footer a:hover{color:rgba(255,255,255,.95)}
+
+    /* ====== STICKY BUY ====== */
+    .sticky{
+      position:fixed; left:0; right:0; bottom:14px; z-index:60;
+      display:flex; justify-content:center; padding:0 14px;
+    }
+    .bar{
+      max-width:var(--max);
+      width:100%;
+      border:1px solid rgba(0,255,224,.18);
+      background: linear-gradient(180deg, rgba(10,18,48,.72), rgba(4,7,23,.55));
+      backdrop-filter: blur(16px);
+      border-radius: 18px;
+      box-shadow: 0 24px 90px rgba(0,0,0,.60), 0 18px 80px rgba(0,183,255,.12);
+      padding:12px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .bar .left{display:flex; align-items:center; gap:10px; color:rgba(255,255,255,.85); font-size:13px}
+    .bar .right{display:flex; align-items:center; gap:10px}
+    select{
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(0,183,255,.20);
+      color:rgba(255,255,255,.92);
+      padding:10px 12px;
+      border-radius:14px;
+      outline:none;
+      font-weight:1000;
+      cursor:pointer;
+    }
+    .buyNow{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(0,255,224,.30);
+      background: linear-gradient(135deg, rgba(0,255,224,.26), rgba(0,183,255,.22), rgba(47,123,255,.10));
+      font-weight:1100;
+      white-space:nowrap;
+      transition: transform .15s ease, box-shadow .15s ease;
+      box-shadow: 0 16px 55px rgba(0,255,224,.12), 0 16px 55px rgba(0,183,255,.14);
+    }
+    .buyNow:hover{
+      transform:translateY(-1px);
+      box-shadow: 0 18px 70px rgba(0,255,224,.16), 0 18px 70px rgba(0,183,255,.18);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .title{font-size:56px; letter-spacing:7px}
+      .title::before{width:300px}
+      .subtitle{font-size:16px}
+      .cards, .reviews, .faq{grid-template-columns: 1fr}
+      .bar{flex-direction:column; align-items:stretch}
+      .bar .right{justify-content:space-between}
+      .navlinks{display:none}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .title, .title::after, .title::before{animation:none !important}
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="nav">
+      <div class="brand"><span class="orb"></span> Elyzio</div>
+      <div class="navlinks">
+        <a href="#packs">Packs</a>
+        <a href="#avis">Avis</a>
+        <a href="reglement.html">Règlement</a>
+      </div>
+      <a class="cta" href="#packs"><span class="dot"></span> Acheter</a>
+    </div>
+  </header>
 
-<header>
-  <div class="nav">
-    <div class="brand">ELYZIO</div>
-    <a class="cta" href="#packs">Acheter</a>
+  <main class="wrap">
+    <section class="hero">
+      <h1 class="title">ELYZIO</h1>
+      <p class="subtitle">
+        Boost ton setup. Choisis ton pack.<br>
+        Paiement Stripe → téléchargement immédiat du PDF.
+      </p>
+      <div class="chips">
+        <span class="chip"><span class="check"></span> Accès instant</span>
+        <span class="chip"><span class="check"></span> Paiement sécurisé</span>
+        <span class="chip"><span class="check"></span> Lisible mobile</span>
+      </div>
+    </section>
+
+    <section id="packs" class="section">
+      <h2 class="section-title">Les 3 packs</h2>
+      <p class="section-sub">Choisis selon ton niveau. Téléchargement immédiat après paiement.</p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="tag"><i class="g"></i> Boost EXPRESS</div>
+          <div class="price">5€</div>
+          <div class="one">Rapide, efficace.</div>
+          <ul>
+            <li><span class="tick"></span><span>Optimisation essentielle</span></li>
+            <li><span class="tick"></span><span>Fluidité / FPS</span></li>
+            <li><span class="tick"></span><span>Checklist simple</span></li>
+          </ul>
+          <a class="btn" href="https://buy.stripe.com/00w14m74DbSpcpgfVQ38400" target="_blank" rel="noopener">Acheter EXPRESS</a>
+          <div class="hint">Téléchargement immédiat</div>
+        </article>
+
+        <article class="card">
+          <div class="tag"><i class="y"></i> Boost PERFORMANCE</div>
+          <div class="price">10€</div>
+          <div class="one">Le meilleur choix.</div>
+          <ul>
+            <li><span class="tick"></span><span>Optimisation avancée</span></li>
+            <li><span class="tick"></span><span>Latence / stabilité</span></li>
+            <li><span class="tick"></span><span>Plus complet</span></li>
+          </ul>
+          <a class="btn" href="https://buy.stripe.com/6oU9ASdt1g8F8909xs38401" target="_blank" rel="noopener">Acheter PERFORMANCE</a>
+          <div class="hint">Téléchargement immédiat</div>
+        </article>
+
+        <article class="card">
+          <div class="tag"><i class="b"></i> Boost ELITE</div>
+          <div class="price">20€</div>
+          <div class="one">Le guide complet.</div>
+          <ul>
+            <li><span class="tick"></span><span>Optimisation totale</span></li>
+            <li><span class="tick"></span><span>Guide complet (10 chapitres)</span></li>
+            <li><span class="tick"></span><span>Pour tout maîtriser</span></li>
+          </ul>
+          <a class="btn" href="https://buy.stripe.com/aFa4gy88H7C91KC8to38402" target="_blank" rel="noopener">Acheter ELITE</a>
+          <div class="hint">Téléchargement immédiat</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="avis" class="section">
+      <h2 class="section-title">Avis</h2>
+
+      <div class="reviews">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“EXPRESS est clean. 15 minutes et déjà plus fluide. Simple et efficace.”</p>
+          <div class="who">— Lucas • PC gamer</div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“PERFORMANCE c’est le meilleur. Réglages clairs, et mes micro-lags ont disparu.”</p>
+          <div class="who">— Mehdi • Warzone</div>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★☆</div>
+          <p>“ELITE est détaillé. J’ai suivi étape par étape, je sens le setup plus stable.”</p>
+          <div class="who">— Anaïs • Setup streaming</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq">
+        <div class="q">
+          <b>Comment je reçois le PDF ?</b>
+          <p>Après paiement Stripe, tu arrives sur la page merci avec le bouton de téléchargement.</p>
+        </div>
+        <div class="q">
+          <b>Ça marche sur mobile ?</b>
+          <p>Oui, lecture sur téléphone et PC.</p>
+        </div>
+        <div class="q">
+          <b>Un souci ?</b>
+          <p>Regarde la page Règlement (menu) pour les infos.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Elyzio</div>
+      <div>
+        <a href="#packs">Packs</a> •
+        <a href="#avis">Avis</a> •
+        <a href="reglement.html">Règlement</a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Sticky buy bar -->
+  <div class="sticky">
+    <div class="bar">
+      <div class="left"><span class="dot"></span> Achat rapide</div>
+      <div class="right">
+        <select id="packSelect" aria-label="Choisir un pack">
+          <option value="express">EXPRESS — 5€</option>
+          <option value="performance">PERFORMANCE — 10€</option>
+          <option value="elite">ELITE — 20€</option>
+        </select>
+        <a id="buyNow" class="buyNow" href="#" target="_blank" rel="noopener">Acheter</a>
+      </div>
+    </div>
   </div>
-</header>
 
-<section class="hero">
-  <div class="title">ELYZIO</div>
-  <div class="subtitle">
-    Boost ton setup. Choisis ton pack.<br>
-    Paiement Stripe → téléchargement immédiat.
-  </div>
-</section>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-<div class="wrap">
+    const links = {
+      express: "https://buy.stripe.com/00w14m74DbSpcpgfVQ38400",
+      performance: "https://buy.stripe.com/6oU9ASdt1g8F8909xs38401",
+      elite: "https://buy.stripe.com/aFa4gy88H7C91KC8to38402"
+    };
 
-<section id="packs" class="packs">
+    const sel = document.getElementById("packSelect");
+    const buy = document.getElementById("buyNow");
 
-  <div class="card">
-    <h3>Boost EXPRESS</h3>
-    <div class="price">5€</div>
-    <ul>
-      <li>Optimisation essentielle</li>
-      <li>Fluidité / FPS</li>
-      <li>Checklist simple</li>
-    </ul>
-    <a class="btn" href="https://buy.stripe.com/00w14m74DbSpcpgfVQ38400" target="_blank">Acheter</a>
-  </div>
-
-  <div class="card">
-    <h3>Boost PERFORMANCE</h3>
-    <div class="price">10€</div>
-    <ul>
-      <li>Optimisation avancée</li>
-      <li>Latence / stabilité</li>
-      <li>Plus complet</li>
-    </ul>
-    <a class="btn" href="https://buy.stripe.com/6oU9ASdt1g8F8909xs38401" target="_blank">Acheter</a>
-  </div>
-
-  <div class="card">
-    <h3>Boost ELITE</h3>
-    <div class="price">20€</div>
-    <ul>
-      <li>Optimisation totale</li>
-      <li>Guide complet</li>
-      <li>Pour tout maîtriser</li>
-    </ul>
-    <a class="btn" href="https://buy.stripe.com/aFa4gy88H7C91KC8to38402" target="_blank">Acheter</a>
-  </div>
-
-</section>
-
-<h2 class="section-title">Avis</h2>
-
-<section class="reviews">
-
-  <div class="review">
-    ★★★★★
-    <p>“EXPRESS est clean. J’ai appliqué en 15 min, j’ai senti la diff direct.”</p>
-    <div class="who">— Lucas • PC gamer</div>
-  </div>
-
-  <div class="review">
-    ★★★★★
-    <p>“PERFORMANCE est le meilleur. Pas de blabla, résultats concrets.”</p>
-    <div class="who">— Mehdi • Warzone</div>
-  </div>
-
-  <div class="review">
-    ★★★★☆
-    <p>“ELITE est bien détaillé. J’ai tout refait étape par étape.”</p>
-    <div class="who">— Anaïs • Streaming</div>
-  </div>
-
-</section>
-
-<h2 class="section-title">FAQ</h2>
-
-<section class="faq">
-  <div class="q">
-    <b>Comment je reçois le PDF ?</b>
-    <p>Après paiement Stripe, tu arrives sur la page de téléchargement.</p>
-  </div>
-  <div class="q">
-    <b>Ça marche sur mobile ?</b>
-    <p>Oui, compatible téléphone et PC.</p>
-  </div>
-  <div class="q">
-    <b>Besoin d’aide ?</b>
-    <p>Contact via la page règlement.</p>
-  </div>
-</section>
-
-<footer>
-  © 2026 Elyzio
-</footer>
-
-</div>
-
+    function syncBuy(){
+      buy.href = links[sel.value] || "#packs";
+      buy.textContent = "Acheter " + sel.value.toUpperCase();
+    }
+    sel.addEventListener("change", syncBuy);
+    syncBuy();
+  </script>
 </body>
 </html>
+
 
 
